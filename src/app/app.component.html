@@ -3,11 +3,13 @@
 <h1>Cabecera principal</h1>
 <router-outlet></router-outlet>
 
+{{nombre}}
+
 <form>
-    <div class="p-field">
-      <input id="name" type="text" pInputText placeholder="Nombre" [(ngModel)]="nombre" #ctrl="ngModel" required />
-    </div>   
-    <button type="submit" pButton (click)="onSubmit()" label="Enviar"></button>
+  <div class="p-field">
+    <input id="name" type="text" pInputText placeholder="Nombre" [(ngModel)]="nombre" name="nombre" #ctrl="ngModel" required />
+  </div>
+  <button type="submit" pButton (click)="onSubmit()" label="Enviar"></button>
 </form>
 
 <app-footer></app-footer>
