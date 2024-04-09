@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
@@ -16,10 +16,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'AngularArquitectura';
 
   nombre: string = '';
+
+  ngOnInit(): void {
+    const urlDelIframe = window.location.href;
+    console.log('HOLA MUESTRO LA URL ', urlDelIframe);
+    window.parent.postMessage({ url: urlDelIframe }, '*');
+  }
 
   onSubmit() {
     console.log('Nombre enviado: ' + this.nombre);
