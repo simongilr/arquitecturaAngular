@@ -1,1 +1,11 @@
-<p>Formulario para login de usuario</p>
+<div class="p-fluid">
+    <div class="p-field">
+        <label for="username" class="p-d-block">Usuario</label>
+        <input id="username" type="text" pInputText [(ngModel)]="username" class="p-inputtext" />
+    </div>
+    <div class="p-field">
+        <label for="password" class="p-d-block">Contraseña</label>
+        <input id="password" type="password" pInputText [(ngModel)]="password" class="p-inputtext" />
+    </div>
+    <button type="button" pButton (click)="login()" label="Iniciar Sesión" class="p-button"></button>
+</div>

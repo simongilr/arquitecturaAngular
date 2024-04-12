@@ -12,3 +12,8 @@
         z-index: 1000;
     }
 }
+
+.p-toolbar-group-start button,
+.p-toolbar-group-end button {
+    margin-right: 5px; /* Ajusta el valor según el espaciado deseado */
+}

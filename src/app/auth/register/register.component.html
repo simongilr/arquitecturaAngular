@@ -1,1 +1,6 @@
-<p>Formulario de registro de usuarios</p>
+<form>
+  <div class="p-field">
+    <input id="name" type="text" pInputText placeholder="Nombre" [(ngModel)]="nombre" name="nombre" #ctrl="ngModel" required />
+  </div><br>
+  <button type="submit" pButton (click)="onSubmit()" label="Enviar"></button>
+</form>

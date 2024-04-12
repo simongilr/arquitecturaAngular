@@ -14,7 +14,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavBarComponent, FooterComponent, ButtonModule, InputTextModule, FormsModule, ToolbarModule, SplitButtonModule],
+  imports: [CommonModule, RouterOutlet, NavBarComponent, FooterComponent, ToolbarModule, SplitButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,30 +22,11 @@ export class AppComponent implements OnInit{
   title = 'AngularArquitectura';
 
   nombre: string = '';
-  items: MenuItem[] | undefined;
-
 
   ngOnInit(): void {
     this.sendUrl();
-    this.items = [
-      {
-          label: 'Update',
-          icon: 'pi pi-refresh'
-      },
-      {
-          label: 'Delete',
-          icon: 'pi pi-times'
-      }
-  ];
   }
 
-
-
-  onSubmit() {
-    console.log('Nombre enviado: ' + this.nombre);
-    alert('Nombre enviado: ' + this.nombre);
-    this.nombre = ''; 
-  }
 
   sendUrl () {
     const urlDelIframe = window.location.href;
