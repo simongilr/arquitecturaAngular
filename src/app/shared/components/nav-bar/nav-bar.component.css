@@ -1,11 +1,14 @@
-ul {
-    display: flex;
-    list-style-type: none;
-    gap: 20px;
+:host ::ng-deep {
+    .dock-window {
+        width: 100%;
+        height: 450px;
+        position: relative;
+        background-image: url('https://primefaces.org/cdn/primeng/images/dock/window.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-    li {
-        background-color: lightblue;
-        padding: 10px 20px;
-        cursor: pointer;
+    .p-dock {
+        z-index: 1000;
     }
 }
