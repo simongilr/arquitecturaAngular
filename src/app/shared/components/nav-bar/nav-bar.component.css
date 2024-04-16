@@ -17,3 +17,12 @@
 .p-toolbar-group-end button {
     margin-right: 5px; /* Ajusta el valor según el espaciado deseado */
 }
+
+
+.toolbar-container {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ajusta este valor según sea necesario */
+}
