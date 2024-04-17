@@ -3,18 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
 import { ToolbarModule } from 'primeng/toolbar';
-import { MenuItem } from 'primeng/api';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { DockComponent } from './shared/components/dock/dock.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavBarComponent, FooterComponent, ToolbarModule, SplitButtonModule],
+  imports: [CommonModule, RouterOutlet, NavBarComponent, FooterComponent, ToolbarModule, SplitButtonModule, DockComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

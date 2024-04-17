@@ -1,0 +1,7 @@
+.table-container {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ajusta este valor según sea necesario */
+}

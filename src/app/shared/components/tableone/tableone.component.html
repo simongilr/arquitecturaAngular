@@ -1,0 +1,66 @@
+<div class="table-container">
+    <div class="card">
+        <div class="card">
+            <p-table #dt 
+                    [columns]="cols" 
+                    [value]="products" 
+                    [globalFilterFields]="['code', 'name', 'category', 'quantity']" 
+                    (onFilter)="applyGlobalFilter($event)"
+                    selectionMode="multiple" 
+                    [(selection)]="selectedProducts" 
+                    [exportHeader]="'customExportHeader'" 
+                    [tableStyle]="{ 'min-width': '50rem' }" 
+                    [paginator]="true" 
+                    [rows]="10" 
+                    [totalRecords]="totalRecords" 
+                    [rowsPerPageOptions]="[1,5,10,20]" 
+                    [pageLinks]="3"
+                    [scrollable]="true"
+                    scrollHeight="380px" 
+                    [resizableColumns]="true"
+                    styleClass="p-datatable-gridlines"
+                    >
+                    <ng-template pTemplate="caption">
+                        <div class="flex justify-content-between">
+                            <div >
+                                <button *ngFor="let button of buttons" 
+                                    type="button" 
+                                    pButton 
+                                    pRipple 
+                                    icon="{{ button.icon }}" 
+                                    (click)="button.clickHandler()"
+                                    class="my-button {{ button.class }}"
+                                    pTooltip="{{ button.tooltip }}"
+                                    tooltipPosition="bottom">
+                                </button>
+                            </div>
+                            <div>
+                                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt)"></button>
+                                <span class="p-input-icon-left">
+                                    <i class="pi pi-search"></i>
+                                    <ng-container *ngIf="dt">
+                                        <input pInputText type="text" (input)="applyGlobalFilter($event)" placeholder="Search keyword" />
+                                    </ng-container>                    
+                                </span>
+                            </div>
+                        </div>
+                    </ng-template>
+                    
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{ col.header }}
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns" >
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns">
+                            {{ rowData[col.field] }}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div> 
+</div> 

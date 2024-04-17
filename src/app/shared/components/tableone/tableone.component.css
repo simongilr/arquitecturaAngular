@@ -1,0 +1,33 @@
+.table-container {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.paginator-wrapper {
+    margin-top: 10px; /* Ajusta el espaciado entre la tabla y el paginador según sea necesario */
+}
+
+.p-datatable-footer {
+    display: none !important;
+}
+
+
+.my-button {
+    margin-right: 5px; 
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
