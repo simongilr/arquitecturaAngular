@@ -31,3 +31,10 @@
 .justify-content-between {
     justify-content: space-between;
 }
+
+.alingLeft {
+    position: relative;    
+    top: 3px;
+
+}
+

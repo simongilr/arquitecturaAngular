@@ -17,6 +17,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { Table } from 'primeng/table';
 
 
+
 interface Column {
   field: string;
   header: string;
@@ -59,6 +60,10 @@ export class TableoneComponent implements OnInit{
   selectedProducts!: Product[];
   exportColumns!: ExportColumn[];
   totalRecords: number = 0; 
+  totalQuantity: number = 0;
+  totalAmount: number = 0;
+
+  
   buttons = [
     { icon: 'pi pi-file', clickHandler: () => this.dt.exportCSV(), tooltip: 'CSV', class: 'mr-2' },
     { icon: 'pi pi-file-excel', clickHandler: () => this.exportExcel(), tooltip: 'XLS', class: 'p-button-success mr-2' },
@@ -71,6 +76,7 @@ export class TableoneComponent implements OnInit{
     this.productService.getProductsMini().then((data) => {
       this.products = data;
       this.totalRecords = this.products.length; 
+      this.calcularTotales();
 
     });
   
@@ -85,13 +91,33 @@ export class TableoneComponent implements OnInit{
 
     }
     
+
+    // Calcula los totales en función de tus datos
+    calcularTotales(): void {
+      // Reinicia los totales a cero
+      this.totalQuantity = 0;
+      this.totalAmount = 0;
+
+      // Calcula los totales sumando los valores de cada fila
+      this.products.forEach((product:any) => {
+          this.totalQuantity += product.quantity;
+          this.totalAmount += product.amount;
+      });
+    }
+
     clear(table: Table) {
       table.clear();
-  }
+    }
     globalFilter: string = ''; // Definición de la propiedad globalFilter
 
     applyGlobalFilter(event: any) {
       this.dt.filterGlobal(event.target.value, 'contains');
+    }
+
+    onSort(event: any) {
+      // Aquí manejas la lógica de clasificación
+      // event.field contendrá el nombre de la columna clasificada
+      // event.order contendrá la dirección de la clasificación (1 para ascendente, -1 para descendente)
     }
 
   exportPdf() {
