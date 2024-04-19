@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { StepperModule } from 'primeng/stepper';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -8,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [StepperModule, CommonModule, FormsModule, InputTextModule, ButtonModule],
+  imports: [CommonModule, FormsModule, InputTextModule, ButtonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

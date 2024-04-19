@@ -11,7 +11,15 @@ import { DockComponent } from './shared/components/dock/dock.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavBarComponent, FooterComponent, ToolbarModule, SplitButtonModule, DockComponent],
+  imports: [
+    CommonModule, 
+    RouterOutlet, 
+    NavBarComponent, 
+    FooterComponent, 
+    ToolbarModule, 
+    SplitButtonModule, 
+    DockComponent
+          ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

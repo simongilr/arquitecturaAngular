@@ -50,7 +50,6 @@ interface ExportColumn {
 export class TableoneComponent implements OnInit{
 
   @ViewChild('dt') dt: any; 
-  @ViewChild('dt1') dt1: any = '23223ddd'; 
 
 
   constructor(private productService: ProductService) {}
@@ -76,8 +75,7 @@ export class TableoneComponent implements OnInit{
     this.productService.getProductsMini().then((data) => {
       this.products = data;
       this.totalRecords = this.products.length; 
-      this.calcularTotales();
-
+      this.totals();
     });
   
     this.cols = [
@@ -88,38 +86,35 @@ export class TableoneComponent implements OnInit{
     ];
     
     this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
-
     }
     
+ selectCheck(value:any) {
+  console.log('value check : ', value);
 
-    // Calcula los totales en función de tus datos
-    calcularTotales(): void {
-      // Reinicia los totales a cero
-      this.totalQuantity = 0;
-      this.totalAmount = 0;
+ }
 
-      // Calcula los totales sumando los valores de cada fila
-      this.products.forEach((product:any) => {
-          this.totalQuantity += product.quantity;
-          this.totalAmount += product.amount;
-      });
-    }
+  // Calcula los totales en función de tus datos
+  totals(): void {
+    // Reinicia los totales a cero
+    this.totalQuantity = 0;
 
-    clear(table: Table) {
-      table.clear();
-    }
-    globalFilter: string = ''; // Definición de la propiedad globalFilter
+    // Calcula los totales sumando los valores de cada fila
+    this.products.forEach((product:any) => {
+      this.totalQuantity += product.quantity;
+    });
+  }
 
-    applyGlobalFilter(event: any) {
+  clear(table: Table) {
+    table.clear();
+  }
+  globalFilter: string = ''; // Definición de la propiedad globalFilter
+
+  applyGlobalFilter(event: any) {
+    if (event?.target?.value) {
       this.dt.filterGlobal(event.target.value, 'contains');
-    }
-
-    onSort(event: any) {
-      // Aquí manejas la lógica de clasificación
-      // event.field contendrá el nombre de la columna clasificada
-      // event.order contendrá la dirección de la clasificación (1 para ascendente, -1 para descendente)
-    }
-
+    } 
+  }
+  
   exportPdf() {
 /*       import('jspdf').then((jsPDF) => {
           import('jspdf-autotable').then((x) => {

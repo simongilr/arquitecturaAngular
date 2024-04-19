@@ -26,3 +26,24 @@
     width: 100%;
     z-index: 1000; /* Ajusta este valor según sea necesario */
 }
+
+.sidebar-content {
+    width: 100%;
+    transition: width 0.3s ease; /* Añade una transición suave */
+}
+
+.p-sidebar-visible .sidebar-content {
+    width: calc(100% - 50px); /* Ajusta el ancho según el tamaño de la barra lateral */
+}
+
+
+.vertical-toolbar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+}
+
+.vertical-toolbar .p-sidebar {
+    height: 100%;
+}
